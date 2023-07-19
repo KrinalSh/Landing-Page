@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <div class="circle">
+
+        </div>
+        <header>
+            <a href="#"><img src="img/logo.png" class="logo"></a>
+            <h1 class="head">Starbucks</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">What's New</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textbox">
+                <h2>It's not just coffee<br> It's <span> Starbucks</span></h2>
+                <p id="message">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, rerum voluptate eius, incidunt
+                    quo, ipsam distinctio est inventore nisi voluptatibus velit ut laudantium perferendis perspiciatis
+                    tenetur nostrum! Exercitationem reprehenderit, facilis minima saepe esse velit. Non ipsa ex
+                    accusantium omnis facere?
+                </p>                
+                <div id="expandText" class="hidden">
+                    This is the expandable text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias nihil
+                    eos animi? Neque, eveniet magnam porro dolore quo ducimus placeat architecto a reiciendis
+                </div>
+                <a id="expandLink" href="#">Learn More</a>
+            </div>
+            <div class="imagebox">
+                <img src="img/img1.png" class="starbucks">
+            </div>
+        </div>
+        <ul class="thumb">
+            <li><img src="img/thumb1.png" onclick="imgSlider('img/img1.png');changeColor('#017143')"></li>
+            <li><img src="img/thumb2.png" onclick="imgSlider('img/img2.png');changeColor('#eb7495')"></li>
+            <li><img src="img/thumb3.png" onclick="imgSlider('img/img3.png');changeColor('rgb(246 136 207)')"></li>
+        </ul>
+        <ul class="sci">
+            <li><a href="#"><img src="img/facebook.png"></a></li>
+            <li><a href="#"><img src="img/twitter.png"></a></li>
+            <li><a href="#"><img src="img/instagram.png"></a></li>
+        </ul>
+    </section>
+
+    <script type="text/javascript">
+        function imgSlider(a) {
+            document.querySelector(".starbucks").src = a;
+        }
+
+        function changeColor(c) {
+            const circle = document.querySelector(".circle");
+            circle.style.background = c;
+        }
+
+        const expandLink = document.getElementById('expandLink');
+        const expandText = document.getElementById('expandText');
+
+        // Add click event listener to the link
+        expandLink.addEventListener('click', function (event) {
+            event.preventDefault(); 
+            // Toggle the visibility of the expandable text
+            expandText.classList.toggle('hidden');
+            // Update the link text based on the visibility of the expandable text
+            if (expandText.classList.contains('hidden')) {
+                expandLink.textContent = 'Learn More';
+            } else {
+                expandLink.textContent = 'See Less';
+            }
+        });
+       
+
+    </script>
+</body>
+
+</html>
